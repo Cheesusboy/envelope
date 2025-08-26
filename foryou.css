@@ -1,9 +1,13 @@
-* { box-sizing: border-box; }
+* {
+  box-sizing: border-box;
+}
+
 html, body {
   height: 100%;
   margin: 0;
   font-family: "Poppins", sans-serif;
 }
+
 body {
   display: flex;
   justify-content: center;
@@ -24,6 +28,7 @@ body {
   overflow: hidden;
   box-shadow: 0 12px 30px rgba(0,0,0,0.2);
 }
+
 .flap {
   position: absolute;
   inset: 0 auto auto 0;
@@ -34,6 +39,7 @@ body {
   transform-origin: top center;
   transition: transform 0.8s ease;
 }
+
 .envelope-text {
   position: absolute;
   inset: 0;
@@ -41,15 +47,17 @@ body {
   place-items: center;
   color: #fff;
   font-weight: 700;
-  font-size: clamp(18px, 4vw, 24px);
+  font-size: clamp(18px, 4vw, 24px); /* Dynamically adjusts font size */
   text-align: center;
   animation: gentle 2.2s ease-in-out infinite;
   pointer-events: none;
 }
+
 @keyframes gentle {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-4px); opacity: 0.9; }
 }
+
 .letter {
   position: absolute;
   top: 100%;
@@ -59,6 +67,7 @@ body {
   background: #fff;
   transition: top 0.8s ease;
 }
+
 .envelope.open .flap { transform: rotateX(180deg); }
 .envelope.open .letter { top: 0; }
 .envelope.open .envelope-text { display: none; }
@@ -81,31 +90,50 @@ body {
   pointer-events: none;
   overflow: hidden;
 }
+
 .heart {
   position: absolute;
   top: -24px;
   animation: fall linear forwards;
 }
+
 @keyframes fall {
   0% { transform: translateY(-10%); }
   100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
 }
+
 /* Feedback - hidden by default */
 .feedback {
   display: none;
   text-align: center;
   margin-top: 20px;
 }
+
+/* Media Query for Smaller Screens */
 @media screen and (max-width: 600px) {
-  /* Adjust text size or layout for smaller screens */
-  .content {
-    font-size: 14px;
-    padding: 10px;
+  /* Adjust envelope width and height for smaller screens */
+  .envelope {
+    width: 90vw;  /* Keeps the envelope width responsive */
+    max-width: 480px;  /* Limit max-width for mobile */
+    aspect-ratio: 4 / 3;  /* Adjust aspect ratio for mobile */
   }
-  .button {
-    width: 100%;
-    padding: 15px;
+
+  .flap {
+    height: 45%;  /* Reduce flap height for better fit on small screens */
+  }
+
+  .envelope-text {
+    font-size: clamp(14px, 5vw, 20px);  /* Adjust font size to fit better */
+    padding: 10px;  /* Add padding to avoid text clipping */
+  }
+
+  /* Adjust slide images and text sizes */
+  .slide img {
+    object-fit: cover;
+    border-radius: 6px;
+  }
+
+  .greeting-slide h2 {
+    font-size: 16px; /* Adjust heading size for mobile */
   }
 }
-
-
