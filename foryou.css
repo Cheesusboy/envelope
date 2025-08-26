@@ -21,7 +21,7 @@ body {
   position: relative;
   width: 90vw;
   max-width: 520px;
-  aspect-ratio: 5 / 4;
+  height: 70vh; /* Set a height relative to the viewport height */
   background: #ff6b81;
   border-radius: 8px;
   cursor: pointer;
@@ -111,20 +111,19 @@ body {
 
 /* Media Query for Smaller Screens */
 @media screen and (max-width: 600px) {
-  /* Adjust envelope width and height for smaller screens */
   .envelope {
-    width: 90vw;  /* Keeps the envelope width responsive */
-    max-width: 480px;  /* Limit max-width for mobile */
-    aspect-ratio: 4 / 3;  /* Adjust aspect ratio for mobile */
+    width: 90vw;
+    height: 60vh; /* Adjust the envelope height to 60% of the viewport height */
+    max-width: 480px; /* Limit max-width for mobile */
   }
 
   .flap {
-    height: 45%;  /* Reduce flap height for better fit on small screens */
+    height: 45%; /* Adjust flap height for better fit on small screens */
   }
 
   .envelope-text {
-    font-size: clamp(14px, 5vw, 20px);  /* Adjust font size to fit better */
-    padding: 10px;  /* Add padding to avoid text clipping */
+    font-size: clamp(14px, 5vw, 20px);  /* Adjust font size */
+    padding: 10px;  /* Add padding */
   }
 
   /* Adjust slide images and text sizes */
