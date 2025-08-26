@@ -1,13 +1,9 @@
-* {
-  box-sizing: border-box;
-}
-
+* { box-sizing: border-box; }
 html, body {
   height: 100%;
   margin: 0;
   font-family: "Poppins", sans-serif;
 }
-
 body {
   display: flex;
   justify-content: center;
@@ -21,14 +17,13 @@ body {
   position: relative;
   width: 90vw;
   max-width: 520px;
-  height: 70vh; /* Set a height relative to the viewport height */
+  aspect-ratio: 5 / 4;
   background: #ff6b81;
   border-radius: 8px;
   cursor: pointer;
   overflow: hidden;
   box-shadow: 0 12px 30px rgba(0,0,0,0.2);
 }
-
 .flap {
   position: absolute;
   inset: 0 auto auto 0;
@@ -39,7 +34,6 @@ body {
   transform-origin: top center;
   transition: transform 0.8s ease;
 }
-
 .envelope-text {
   position: absolute;
   inset: 0;
@@ -47,17 +41,15 @@ body {
   place-items: center;
   color: #fff;
   font-weight: 700;
-  font-size: clamp(18px, 4vw, 24px); /* Dynamically adjusts font size */
+  font-size: clamp(18px, 4vw, 24px);
   text-align: center;
   animation: gentle 2.2s ease-in-out infinite;
   pointer-events: none;
 }
-
 @keyframes gentle {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-4px); opacity: 0.9; }
 }
-
 .letter {
   position: absolute;
   top: 100%;
@@ -67,7 +59,6 @@ body {
   background: #fff;
   transition: top 0.8s ease;
 }
-
 .envelope.open .flap { transform: rotateX(180deg); }
 .envelope.open .letter { top: 0; }
 .envelope.open .envelope-text { display: none; }
@@ -90,51 +81,18 @@ body {
   pointer-events: none;
   overflow: hidden;
 }
-
 .heart {
   position: absolute;
   top: -24px;
   animation: fall linear forwards;
 }
-
 @keyframes fall {
   0% { transform: translateY(-10%); }
   100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
 }
-
 /* Feedback - hidden by default */
 .feedback {
   display: none;
   text-align: center;
   margin-top: 20px;
 }
-
-/* Media Query for Smaller Screens */
-@media screen and (max-width: 600px) {
-  .envelope {
-    width: 90vw;
-    height: 60vh; /* Adjust the envelope height to 60% of the viewport height */
-    max-width: 480px; /* Limit max-width for mobile */
-  }
-
-  .flap {
-    height: 45%; /* Adjust flap height for better fit on small screens */
-  }
-
-  .envelope-text {
-    font-size: clamp(14px, 5vw, 20px);  /* Adjust font size */
-    padding: 10px;  /* Add padding */
-  }
-
-  /* Adjust slide images and text sizes */
-  .slide img {
-    object-fit: cover;
-    border-radius: 6px;
-  }
-
-  .greeting-slide h2 {
-    font-size: 16px; /* Adjust heading size for mobile */
-  }
-}
-
-
