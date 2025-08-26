@@ -96,3 +96,16 @@ body {
   text-align: center;
   margin-top: 20px;
 }
+@media screen and (max-width: 600px) {
+  /* Adjust text size or layout for smaller screens */
+  .content {
+    font-size: 14px;
+    padding: 10px;
+  }
+  .button {
+    width: 100%;
+    padding: 15px;
+  }
+}
+
+
