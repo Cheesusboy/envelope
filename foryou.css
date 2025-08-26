@@ -21,7 +21,7 @@ body {
   position: relative;
   width: 90vw;
   max-width: 520px;
-  height: 70vh; /* Set a height relative to the viewport height */
+  height: 150vh; /* Set a height relative to the viewport height */
   background: #ff6b81;
   border-radius: 8px;
   cursor: pointer;
@@ -136,3 +136,4 @@ body {
     font-size: 16px; /* Adjust heading size for mobile */
   }
 }
+
